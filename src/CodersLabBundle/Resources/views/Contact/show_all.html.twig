@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}CodersLabBundle:Contact:showAll{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Contact:showAll page</h1>
+
+{% for contact in contacts %}
+    {{contact.name}}{{contact.surname}}<br>
+    {{contact.description}}<br>
+    
+    {% endfor %}
+
+
+
+{% endblock %}
