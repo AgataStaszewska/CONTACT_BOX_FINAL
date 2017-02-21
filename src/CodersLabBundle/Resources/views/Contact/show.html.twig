@@ -1,11 +1,13 @@
-{% extends "::base.html.twig" %}
 
-{% block title %}CodersLabBundle:Contact:show{% endblock %}
-
+{% extends '::base.html.twig' %}
 {% block body %}
-<h1>Welcome to the Contact:show page</h1>
-
-{{ dump(contact)}}
-
-
+    <h1>{{contact.name}} {{contact.surname}}</h1>
+    <hr>
+    {{contact.description}}
+    <hr>
+    <a class="btn btn-default" href='{{path('coderslab_contact_showall')}}'>Back to list</a>
+    <a class="btn btn-default" href='{{path('coderslab_contact_modify',{'id':contact.id})}}'>Edit</a>
+    <a class="btn btn-danger" href='{{path('coderslab_contact_delete', {'id':contact.id}) }}'>Remove</a>
+    <a class="btn btn-danger" href='{{path('coderslab_address_new', {'id':contact.id}) }}'>Add address</a>
 {% endblock %}
+

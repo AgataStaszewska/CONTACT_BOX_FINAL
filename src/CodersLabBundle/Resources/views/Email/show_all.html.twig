@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+
+{% block body %}
+<h1>List of All Emails</h1>
+
+{% for email in emails %}
+    {{email.email}}<br>
+    {{email.type}}<br>
+
+    
+    {% endfor %}
+
+
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+  {#  <h1>{{contact.name}} {{contact.surname}}</h1>#}
+    <hr>
+    {{email.email}}<br>
+    {{email.type}}<br>
+
+    <hr>
+   {<a class="btn btn-default" href='{{path('coderslab_email_showall')}}'>Back to list</a>
+    <a class="btn btn-danger" href='{{path('coderslab_email_new', {'id':email.id}) }}'>Add email</a>
+    <a class="btn btn-danger" href='{{path('coderslab_email_delete', {'id':email.id}) }}'>Remove</a>
+{% endblock %}

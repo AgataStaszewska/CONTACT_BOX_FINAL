@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ContactController extends Controller
 {
     /**
-     * @Route("/new")
+     * @Route("/newContact")
      */
     public function newAction(Request $request)
     {

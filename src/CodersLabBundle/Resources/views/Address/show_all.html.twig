@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}CodersLabBundle:Address:showAll{% endblock %}
+
+{% block body %}
+<h1>List of All Addresses</h1>
+
+{% for address in addresses %}
+    {{address.street}}{{address.streetNumber}}<br>
+    {{address.flatNumber}}<br>
+    {{address.city}}<br>
+    
+    {% endfor %}
+
+
+
+{% endblock %}

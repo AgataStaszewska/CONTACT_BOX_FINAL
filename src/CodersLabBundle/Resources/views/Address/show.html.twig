@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+  {#  <h1>{{contact.name}} {{contact.surname}}</h1>#}
+    <hr>
+    {{address.city}}<br>
+    {{address.street}}<br>
+    {{address.streetNumber}}<br>
+    {{address.flatNumber}}<br>
+    <hr>
+    <a class="btn btn-default" href='{{path('coderslab_address_showall')}}'>Back to list</a>
+    <a class="btn btn-default" href='{{path('coderslab_address_new', {'id':address.id}) }}'>Add address</a>
+    <a class="btn btn-danger" href='{{path('coderslab_address_delete', {'id':address.id}) }}'>Remove</a>
+{% endblock %}
