@@ -17,7 +17,12 @@ class Contact
      */
     
      private $addresses;
-     
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="contacts")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
      
     /**
@@ -255,5 +260,28 @@ class Contact
     public function getNameAndSurname(){
         
         return $this->getName().' '.$this->getSurname();
+    }
+
+    /**
+     * Set user
+     *
+     * @param \CodersLabBundle\Entity\User $user
+     * @return Contact
+     */
+    public function setUser(\CodersLabBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \CodersLabBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

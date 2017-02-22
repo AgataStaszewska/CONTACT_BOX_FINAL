@@ -17,7 +17,12 @@ class Contact
      */
     
      private $addresses;
-     
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="contacts")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
      
     /**
@@ -143,5 +148,117 @@ class Contact
     public function getDescription()
     {
         return $this->description;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->addresses = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->emails = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->phoneNumbers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add addresses
+     *
+     * @param \CodersLabBundle\Entity\Address $addresses
+     * @return Contact
+     */
+    public function addAddress(\CodersLabBundle\Entity\Address $addresses)
+    {
+        $this->addresses[] = $addresses;
+
+        return $this;
+    }
+
+    /**
+     * Remove addresses
+     *
+     * @param \CodersLabBundle\Entity\Address $addresses
+     */
+    public function removeAddress(\CodersLabBundle\Entity\Address $addresses)
+    {
+        $this->addresses->removeElement($addresses);
+    }
+
+    /**
+     * Get addresses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+
+    /**
+     * Add emails
+     *
+     * @param \CodersLabBundle\Entity\Email $emails
+     * @return Contact
+     */
+    public function addEmail(\CodersLabBundle\Entity\Email $emails)
+    {
+        $this->emails[] = $emails;
+
+        return $this;
+    }
+
+    /**
+     * Remove emails
+     *
+     * @param \CodersLabBundle\Entity\Email $emails
+     */
+    public function removeEmail(\CodersLabBundle\Entity\Email $emails)
+    {
+        $this->emails->removeElement($emails);
+    }
+
+    /**
+     * Get emails
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEmails()
+    {
+        return $this->emails;
+    }
+
+    /**
+     * Add phoneNumbers
+     *
+     * @param \CodersLabBundle\Entity\PhoneNumber $phoneNumbers
+     * @return Contact
+     */
+    public function addPhoneNumber(\CodersLabBundle\Entity\PhoneNumber $phoneNumbers)
+    {
+        $this->phoneNumbers[] = $phoneNumbers;
+
+        return $this;
+    }
+
+    /**
+     * Remove phoneNumbers
+     *
+     * @param \CodersLabBundle\Entity\PhoneNumber $phoneNumbers
+     */
+    public function removePhoneNumber(\CodersLabBundle\Entity\PhoneNumber $phoneNumbers)
+    {
+        $this->phoneNumbers->removeElement($phoneNumbers);
+    }
+
+    /**
+     * Get phoneNumbers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPhoneNumbers()
+    {
+        return $this->phoneNumbers;
+    }
+    public function getNameAndSurname(){
+        
+        return $this->getName().' '.$this->getSurname();
     }
 }

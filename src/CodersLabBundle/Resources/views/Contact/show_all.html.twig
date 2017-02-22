@@ -7,7 +7,7 @@
 
 {% for contact in contacts %}
     <h3> <b>{{contact.name}}  {{contact.surname}}</b> </h3><br>
-    {{contact.description}}<br>
+    {{contact.description}}<br>  
     <a class="btn btn-primary" href='{{path('coderslab_contact_show', {'id':contact.id}) }}'>Show contact information</a>
     <a class="btn btn-default" href='{{path('coderslab_contact_showall')}}'>Back to list</a>
     <a class="btn btn-default" href='{{path('coderslab_contact_modify',{'id':contact.id})}}'>Edit</a>
@@ -16,7 +16,7 @@
     <a class="btn btn-default" href='{{path('coderslab_phonenumber_new', {'id':contact.id}) }}'>Add phone number</a> 
     <a class="btn btn-default" href='{{path('coderslab_address_new', {'id':contact.id}) }}'>Add address</a><br>
     {% endfor %}
-
+   <a class="btn btn-primary" href='{{path('coderslab_contact_new') }}'>Add contact</a>
 
 
 {% endblock %}

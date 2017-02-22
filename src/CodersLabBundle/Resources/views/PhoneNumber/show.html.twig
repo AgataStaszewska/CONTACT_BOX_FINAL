@@ -6,7 +6,7 @@
     {{phoneNumber.type}}<br>
 
     <hr>
-    <a class="btn btn-default" href='{{path('coderslab_phonenumber_showall')}}'>Back to list</a>
+    <a class="btn btn-default" href='{{path('coderslab_contact_show', {'id':phoneNumber.contact.id}) }}'>Back to contact</a>
     <a class="btn btn-danger" href='{{path('coderslab_phonenumber_new', {'id':phoneNumber.id}) }}'>Add phone number</a>
     <a class="btn btn-danger" href='{{path('coderslab_phonenumber_delete', {'id':phoneNumber.id}) }}'>Remove</a>
 {% endblock %}
