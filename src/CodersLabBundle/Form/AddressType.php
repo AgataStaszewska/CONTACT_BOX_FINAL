@@ -5,6 +5,7 @@ namespace CodersLabBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class AddressType extends AbstractType
 {
@@ -13,7 +14,7 @@ class AddressType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('city')->add('street')->add('streetNumber')->add('flatNumber')        ;
+        $builder->add('city')->add('street')->add('streetNumber')->add('flatNumber')->add('contact', EntityType::class,['class'=>'CodersLabBundle:Contact', 'choice_label'=>'nameAndSurname'])       ;
     }
     
     /**

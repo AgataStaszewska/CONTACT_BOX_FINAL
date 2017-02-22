@@ -3,12 +3,18 @@
 {% block title %}CodersLabBundle:Contact:showAll{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Contact:showAll page</h1>
+<h1>Lista kontaktów</h1>
 
 {% for contact in contacts %}
-    {{contact.name}}{{contact.surname}}<br>
+    <h3> <b>{{contact.name}}  {{contact.surname}}</b> </h3><br>
     {{contact.description}}<br>
-    
+    <a class="btn btn-primary" href='{{path('coderslab_contact_show', {'id':contact.id}) }}'>Show contact information</a>
+    <a class="btn btn-default" href='{{path('coderslab_contact_showall')}}'>Back to list</a>
+    <a class="btn btn-default" href='{{path('coderslab_contact_modify',{'id':contact.id})}}'>Edit</a>
+    <a class="btn btn-danger" href='{{path('coderslab_contact_delete', {'id':contact.id}) }}'>Remove</a>
+    <a class="btn btn-default" href='{{path('coderslab_email_new', {'id':contact.id}) }}'>Add email</a>
+    <a class="btn btn-default" href='{{path('coderslab_phonenumber_new', {'id':contact.id}) }}'>Add phone number</a> 
+    <a class="btn btn-default" href='{{path('coderslab_address_new', {'id':contact.id}) }}'>Add address</a><br>
     {% endfor %}
 
 

@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}CodersLabBundle:PhoneNumber:showAll{% endblock %}
+
+{% block body %}
+<h1>List of All Phone Numbers</h1>
+
+{% for phoneNumber in PhoneNumbers %}
+    {{phoneNumber.number}}<br>
+    {{phoneNumber.type}}<br>
+    
+    
+    {% endfor %}
+
+
+
+{% endblock %}

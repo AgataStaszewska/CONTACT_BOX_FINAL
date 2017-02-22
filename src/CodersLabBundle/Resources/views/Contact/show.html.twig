@@ -2,12 +2,40 @@
 {% extends '::base.html.twig' %}
 {% block body %}
     <h1>{{contact.name}} {{contact.surname}}</h1>
-    <hr>
     {{contact.description}}
     <hr>
-    <a class="btn btn-default" href='{{path('coderslab_contact_showall')}}'>Back to list</a>
+    <hr>
+    <b>Numery telefonu:</b><br>
+    <br>
+    {% for phoneNumber in contact.phoneNumbers %}
+        {{phoneNumber.number}}<br>
+        {{phoneNumber.type}}<br>
+    <br>
+    {% endfor %}
+    <b>Adresy email:</b><br>
+    <br>
+    {% for email in contact.emails %}
+        {{email.email}}<br>
+        {{email.type}}<br>
+    <br>
+    {% endfor %}
+    <b>Adresy do korespondencji:</b><br>
+    <br>
+    {% for address in contact.addresses %}
+        {{address.city}}<br>
+        {{address.street}}<br>
+        {{address.streetNumber}}<br>
+        {{address.flatNumber}}<br>
+        <a class="btn btn-danger" href='{{path('coderslab_address_delete', {'id':address.contact.id}) }}'>Remove</a>
+    <br>
+    {% endfor %}
+
+    <a class="btn btn-primary" href='{{path('coderslab_contact_showall')}}'>Back to list</a>
     <a class="btn btn-default" href='{{path('coderslab_contact_modify',{'id':contact.id})}}'>Edit</a>
     <a class="btn btn-danger" href='{{path('coderslab_contact_delete', {'id':contact.id}) }}'>Remove</a>
-    <a class="btn btn-danger" href='{{path('coderslab_address_new', {'id':contact.id}) }}'>Add address</a>
+    <a class="btn btn-default" href='{{path('coderslab_email_new', {'id':contact.id}) }}'>Add email</a>
+    <a class="btn btn-default" href='{{path('coderslab_phonenumber_new', {'id':contact.id}) }}'>Add phone number</a> 
+    <a class="btn btn-default" href='{{path('coderslab_address_new', {'id':contact.id}) }}'>Add address</a>
+  
 {% endblock %}
 

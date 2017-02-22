@@ -29,7 +29,7 @@ class PhoneNumber
     /**
      * @var string
      *
-     * @ORM\Column(name="number", type="string", length=20, unique=true)
+     * @ORM\Column(name="number", type="string", length=20, unique=false)
      */
     private $number;
 

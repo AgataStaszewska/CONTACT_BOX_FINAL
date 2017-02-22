@@ -2,6 +2,7 @@
 
 namespace CodersLabBundle\Controller;
 
+
 use CodersLabBundle\Entity\Address;
 use CodersLabBundle\Form\AddressType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -63,7 +64,7 @@ class AddressController extends Controller
         $em->remove($address);
         $em->flush();
         
-        return $this->redirectToRoute('coderslab_address_showall');
+        return $this->redirectToRoute('coderslab_contact_show', ['id' => $address->getContact()]);
         
     }
 }

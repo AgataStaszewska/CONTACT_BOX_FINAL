@@ -252,4 +252,8 @@ class Contact
     {
         return $this->phoneNumbers;
     }
+    public function getNameAndSurname(){
+        
+        return $this->getName().' '.$this->getSurname();
+    }
 }
